@@ -5,6 +5,9 @@ const buttonsContainer = document.querySelector(".buttons");
 const yesButton = document.querySelector(".btn--yes");
 const noButton = document.querySelector(".btn--no");
 const catImg = document.querySelector(".cat-img");
+const clickMeButton = document.querySelector(".btn--click-me");
+const clickMeButtonDiv = document.getElementById("click-me-div");
+const video = document.getElementById("video");
 
 const MAX_IMAGES = 5;
 
@@ -12,6 +15,13 @@ let play = true;
 let noCount = 0;
 
 yesButton.addEventListener("click", handleYesClick);
+
+function handleYesClick() {
+  titleElement.innerHTML = "I'm very happy now🥰";
+  buttonsContainer.classList.add("hidden");
+  changeImage("yes");
+  clickMeButtonDiv.style.display = "block";
+}
 
 noButton.addEventListener("click", function () {
   if (play) {
@@ -27,6 +37,13 @@ noButton.addEventListener("click", function () {
   }
 });
 
+clickMeButton.addEventListener("click", function () {
+  titleElement.innerHTML = "Now watch this video😊";
+  clickMeButtonDiv.style.display = "none";
+  video.style.display= "block";
+  catImg.classList.add("hidden");
+});
+
 function updateTitle() {
   const titles = [
     "", // eerste staat al statisch in html
@@ -40,12 +57,6 @@ function updateTitle() {
   const titleIndex = Math.min(noCount, titles.length - 1);
   titleElement.innerHTML = titles[titleIndex];
 }
-
-function handleYesClick() {
-  titleElement.innerHTML = "I'm very happy now🥰";
-  buttonsContainer.classList.add("hidden");
-  changeImage("yes")
-  }
 
 function resizeYesButton() {
   const computedStyle = window.getComputedStyle(yesButton);

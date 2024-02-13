@@ -68,3 +68,26 @@ body {
 .hidden {
   display: none;
 }
+
+.btn--click-me {
+  background-color: #B784B7;
+}
+
+#click-me-div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+  display: none;
+}
+
+#video {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  #video {
+    width: 400px;
+  }
+}
